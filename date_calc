@@ -1,0 +1,32 @@
+from datetime import datetime,timedelta
+a = input('- или + или -н ?')
+if a == '-':
+    print('Введите год, месяц, день')
+    list = []
+    for i in range(3):
+        a = int(input())
+        list.append(a)
+    print('Введите год, месяц, день для второй даты')
+    list1 = []
+    for j in range(3):
+        b = int(input())
+        list1.append(b)
+    aa = datetime.date(int(list[0]),int(list[1]),int(list[2]))
+    bb = datetime.date(int(list1[0]),int(list1[1]),int(list1[2]))
+    cc = aa - bb
+    print(cc)  # output days and time
+    dd = str(cc)
+    print(dd.split()[0])  # only days
+if a == '+':
+    now = datetime.now()
+    print('Введите количcтво дней, которое пройдет с сегоднешнего дня')
+    dey = int(input())
+    days = timedelta(days=dey)
+    print('Через', days , 'дней: ', now + days)
+
+if a == '-н':
+    now = datetime.now()
+    print('Введите количcтво дней, которое отнимется с сегоднешнего дня')
+    dey = int(input())
+    days = timedelta(days=dey)
+    print(days, 'дней назад: ', now - days)
